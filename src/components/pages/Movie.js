@@ -5,59 +5,39 @@ import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
 import MovieCont from "../includes/MovieCont";
-import axios from "axios";
-// function Movie() {
-//   return (
-//     <>
-//       <Header />
-//       <Contents>
-//         <Title title={["Movie", "API"]} />
-//         <MovieCont />
-//         <Contact />
-//       </Contents>
-//       <Footer />
-//     </>
-//   );
-// }
+import MovieSearch from "../includes/MovieSearch";
+import { useState, useEffect } from "react";
 
-class Movie extends React.Component{
-  state={
-    isLoading : true,
-    movies:[],
-  }
-
-
-  getPorts = async( )=>{
-    const{
-      data:{
-        data:{ movies },
-      },
-    } = await axios.get();
-    console.log(movies);
-    this.setState({movies : movies});
+function Movie() {
+  const [movies, setMovies] = useState([]);
+  const search = (query) => {
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=9278d13f704ad0fe53c2263b692efd89&query=${query}`
+    )
+      .then((response) => response.json())
+      .then((result) => setMovies(result.results));
   };
-  componentDidMount(){
-    this.getPorts();
-  }
-
-  render() {
-    const {movies} = this.state;
-
-    return(
-      <>
+  useEffect(() => {
+    fetch(
+      "https://api.themoviedb.org/3/search/movie?api_key=9278d13f704ad0fe53c2263b692efd89&query=marvel"
+    )
+      .then((response) => response.json())
+      .then((result) => setMovies(result.results))
+      .catch((error) => console.log("error", error));
+  }, []);
+  return (
+    <>
       <Header />
       <Contents>
-        <Title title={["Movie", "API"]} />
-        <MovieCont movie={movies}/>
+        <Title title={["Movie", "Api"]} />
+        <MovieSearch onSearch={search} />
+        <MovieCont movies={movies} />
+
         <Contact />
       </Contents>
       <Footer />
     </>
-    )
-
-    }
-
-
+  );
 }
 
 export default Movie;

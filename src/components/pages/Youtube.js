@@ -5,36 +5,35 @@ import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
 import YoutubeCont from "../includes/YoutubeCont";
-import { useState } from "react";
-import { useEffect } from "react";
+import Youtubesearch from "../includes/Youtubesearch";
+
+import { useState, useEffect } from "react";
 
 function Youtube() {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
+  const [youtubes, setYoutubes] = useState([]);
+  const search = (query) => {
     fetch(
-      "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=garam&key=AIzaSyCiFhVoDTSh6qtaySYS0Ji5U7BgB3Cdf_s&maxResults=30",
-      requestOptions
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=AIzaSyCiFhVoDTSh6qtaySYS0Ji5U7BgB3Cdf_s&maxResults=28&type=video`
     )
       .then((response) => response.json())
-      // .then((result) => console.log(result.items))
-      .then((result) => {
-        setVideos(result.items);
-      })
+      .then((result) => setYoutubes(result.results));
+  };
+  useEffect(() => {
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=garam&key=AIzaSyCiFhVoDTSh6qtaySYS0Ji5U7BgB3Cdf_s&maxResults=28`
+    )
+      .then((response) => response.json())
+      .then((result) => setYoutubes(result.items))
+      // .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
-  });
-
+  }, []);
   return (
     <>
       <Header />
       <Contents>
         <Title title={["Youtube", "Api"]} />
-        <YoutubeCont videos={videos} />
+        <Youtubesearch onSearch={search} />
+        <YoutubeCont youtubes={youtubes} />
         <Contact />
       </Contents>
       <Footer />
