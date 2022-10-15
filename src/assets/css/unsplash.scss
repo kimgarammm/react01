@@ -1,7 +1,7 @@
-.youtube__cont {
+.unsplash__cont {
   background-color: var(--black);
 }
-.youtube__list {
+.unsplash__list {
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -27,7 +27,7 @@
   }
 }
 
-.youtube__search {
+.unsplash__search {
   background: var(--black);
 
   .container {
@@ -68,44 +68,8 @@
   }
 }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: black;
-
-  /* Center slide text vertically */
-  display: --webkit-box;
-  display: --ms-flexbox;
-  display: --webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.swiper-slide p {
-  color: white;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 @media (max-width: 800px) {
-  .youtube__list ul li {
+  .unsplash__list ul li {
     flex: 1 1 43%;
   }
 }

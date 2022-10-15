@@ -4,24 +4,23 @@ function UnsplashItem(props) {
   return (
     <li>
       <a href={`https://unsplash.com/photos/${props.image.id}`}>
-        <img
-          src={`https://unsplash.com/photos/${props.images.id}`}
-          alt={props.images.description}
-        />
-        <span>{props.images.alt_description}</span>
+        <img src={props.image.urls.regular} alt={props.image.id} />
+        <span>by "{props.image.user.name}"</span>
+        <span>{props.image.created_at}</span>
       </a>
     </li>
   );
 }
 
-function Unsplashcont(props) {
+function UnsplashCont(props) {
+  console.log(props);
   return (
     <div className="unsplash__cont">
       <div className="container">
-        <div className="unsplash__inner">
+        <div className="unsplash__list">
           <ul>
-            {props.images.map((images, index) => (
-              <UnsplashItem images={images} key={index} />
+            {props.image.map((image) => (
+              <UnsplashItem image={image} />
             ))}
           </ul>
         </div>
@@ -30,4 +29,4 @@ function Unsplashcont(props) {
   );
 }
 
-export default Unsplashcont;
+export default UnsplashCont;
