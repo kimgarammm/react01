@@ -43,7 +43,7 @@ function Unsplash() {
       <Header />
       <Contents>
         <Title title={["Unsplash", "Api"]} />
-        <SubTitle subtitle={["Cat", "Love"]} />
+        <SubTitle subtitle={["Cat", " Love"]} />
         <UnsplashSwiper swiper={swiper} />
         <UnsplashSearch onSearch={search} />
         <UnsplashCont image={image} />

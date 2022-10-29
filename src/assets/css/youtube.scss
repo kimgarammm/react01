@@ -29,6 +29,7 @@
 
 .youtube__search {
   background: var(--black);
+  padding-bottom: 3vh;
 
   .container {
     position: relative;
@@ -67,41 +68,53 @@
     width: 40px;
   }
 }
+.youtubeswiper_item {
+  .swiper {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding-bottom: 10vh;
+    padding-top: 10vh;
+  }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-}
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: black;
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: black;
+    /* Center slide text vertically */
+    display: --webkit-box;
+    display: --ms-flexbox;
+    display: --webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .swiper-slide p {
+    color: white;
+  }
+  .swiper-slide a {
+    width: 29vw;
+  }
 
-  /* Center slide text vertically */
-  display: --webkit-box;
-  display: --ms-flexbox;
-  display: --webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.swiper-slide p {
-  color: white;
-}
+  .swiper-slide img {
+    display: block;
+    width: 29vw;
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    object-fit: cover;
+  }
+  .swiper-pagination {
+    padding-bottom: 5vh;
+  }
+  .swiper-pagination-bullet {
+    background-color: #fff;
+  }
 }
 
 @media (max-width: 800px) {

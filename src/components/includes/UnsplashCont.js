@@ -2,13 +2,9 @@ import React from "react";
 
 function UnsplashItem(props) {
   return (
-    <li>
-      <a href={`https://unsplash.com/photos/${props.image.id}`}>
-        <img src={props.image.urls.regular} alt={props.image.id} />
-        <span>by "{props.image.user.name}"</span>
-        <span>{props.image.created_at}</span>
-      </a>
-    </li>
+    <figure className="gallery__item">
+      <img src={`${props.image.urls.thumb}`} alt="" className="gallery__img" />
+    </figure>
   );
 }
 

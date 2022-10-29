@@ -25,7 +25,7 @@ function Youtube() {
 
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=garam&key=AIzaSyCiFhVoDTSh6qtaySYS0Ji5U7BgB3Cdf_s&maxResults=28`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=frontend&key=AIzaSyCiFhVoDTSh6qtaySYS0Ji5U7BgB3Cdf_s&maxResults=28`
     )
       .then((response) => response.json())
       .then((result) => setYoutubes(result.items))
@@ -43,9 +43,8 @@ function Youtube() {
     <>
       <Header />
       <Contents>
-       
-        <Title title={["Youtube", "Api"]} /> 
-        <SubTitle subtitle={["Most", "Popular"]} />
+        <Title title={["Youtube", "Api"]} />
+        <SubTitle subtitle={["Most", " Popular"]} />
         <YoutubeSwiper swiper={swiper} />
         <Youtubesearch onSearch={search} />
         <YoutubeCont youtubes={youtubes} />

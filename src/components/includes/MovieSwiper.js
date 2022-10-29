@@ -1,23 +1,24 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
-
+import "swiper/css/navigation";
 export default function MovieSwiper({ swiper }) {
   if (swiper.length !== 0) {
     console.log({ swiper });
     return (
-      <>
+      <div className="MovieSwiper_item">
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          slidesPerView={4}
+          spaceBetween={1}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
-          modules={[Autoplay]}
+          modules={[Autoplay, Navigation]}
           className="mySwiper"
+          navigation={true}
         >
           <SwiperSlide>
             <img
@@ -83,7 +84,7 @@ export default function MovieSwiper({ swiper }) {
             <span>{swiper[8].title}</span>
           </SwiperSlide>
         </Swiper>
-      </>
+      </div>
     );
   }
 }

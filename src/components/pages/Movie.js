@@ -41,7 +41,7 @@ function Movie() {
       <Header />
       <Contents>
         <Title title={["Movie", "Api"]} />
-        <SubTitle subtitle={["Top", "10"]} />
+        <SubTitle subtitle={["Top", " 10"]} />
         <MovieSwiper swiper={swiper} />
         <MovieSearch onSearch={search} />
         <MovieCont movies={movies} />

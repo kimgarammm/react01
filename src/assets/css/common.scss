@@ -8,6 +8,7 @@
 
 // cont__title
 .cont__title {
+  height: 100vh;
   padding: 15vmax 1% 10vmax;
   font-size: 5vmax;
   font-family: var(--main_font);
@@ -83,6 +84,7 @@
 }
 
 .cont__subtitle {
+  text-align: center;
   height: 6vh;
   width: 100%;
   color: var(--white);
